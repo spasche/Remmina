@@ -91,6 +91,12 @@
 #define SSH_SOCKET_TCP_KEEPINTVL 3
 /* Remember to lower SSH_SOCKET_TCP_USER_TIMEOUT to 4 when kernel bug 108191 will be fixed */
 #define SSH_SOCKET_TCP_USER_TIMEOUT 9
+
+/* libssh default options */
+
+#define REMMINA_SSH_KEX "hmac-sha2-256,hmac-sha2-512,hmac-sha1,ecdh-sha2-nistp256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1"
+
+
 #endif
 
 
@@ -430,6 +436,7 @@ remmina_ssh_init_session (RemminaSSH *ssh)
 	ssh_options_set (ssh->session, SSH_OPTIONS_HOST, ssh->server);
 	ssh_options_set (ssh->session, SSH_OPTIONS_PORT, &ssh->port);
 	ssh_options_set (ssh->session, SSH_OPTIONS_USER, ssh->user);
+	ssh_options_set (ssh->session, SSH_OPTIONS_KEY_EXCHANGE, REMMINA_SSH_KEX);
 
 	ssh_callbacks_init(ssh->callback);
 	if (remmina_log_running ())
