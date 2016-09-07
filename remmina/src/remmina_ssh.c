@@ -94,8 +94,7 @@
 
 /* libssh default options */
 
-#define REMMINA_SSH_KEX "hmac-sha2-256,hmac-sha2-512,hmac-sha1,ecdh-sha2-nistp256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1"
-
+#define REMMINA_SSH_KEX "curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1,ecdh-sha2-nistp256"
 
 #endif
 
